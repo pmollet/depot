@@ -35,7 +35,7 @@ Product.create!(title: 'Seven Mobile Apps in Seven Weeks',
       out which cross-platform solution makes the most sense for your needs.
       </p>},
   image_url: '7apps.jpg',
-  price: 27.00)
+  price: 26.00)
 # . . .
 
 Product.create!(title: 'Ruby Performance Optimization',
