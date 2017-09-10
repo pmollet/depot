@@ -17,13 +17,14 @@
     </header>
 
     <section class="content">
-      <nav class="side_nav">
+      <nav class="nav">
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/questions">Questions</a></li>
           <li><a href="/news">News</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
+        <p></br><%= Date.today %> / <%= Time.now.to_s(:time) %></p>
       </nav>
 
       <main class='<%= controller.controller_name %>'>
