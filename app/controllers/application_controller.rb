@@ -1,5 +1,5 @@
 #---
-# Excerpted from "Agile Web Development with Rails 5",
+# Excerpted from "Agile Web Development with Rails 5.1",
 # published by The Pragmatic Bookshelf.
 # Copyrights apply to this code. It may not be used to create training material,
 # courses, books, articles, and the like. Contact us if you are in doubt.
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
         if I18n.available_locales.map(&:to_s).include?(params[:locale])
           I18n.locale = params[:locale]
         else
-          flash.now[:notice] = 
+          flash.now[:notice] =
             "#{params[:locale]} translation not available"
           logger.error flash.now[:notice]
         end
