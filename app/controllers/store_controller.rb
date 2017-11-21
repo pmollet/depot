@@ -1,22 +1,20 @@
+#---
+# Excerpted from "Agile Web Development with Rails 5",
+# published by The Pragmatic Bookshelf.
+# Copyrights apply to this code. It may not be used to create training material,
+# courses, books, articles, and the like. Contact us if you are in doubt.
+# We make no guarantees that this code is fit for any purpose.
+# Visit http://www.pragmaticprogrammer.com/titles/rails51 for more book information.
+#---
 class StoreController < ApplicationController
-
-  # def access_counter
-  #   if session[:counter].nil?
-  #     session[:counter] = 0
-  #   else session[:counter] += 1
-  #   end
-  #   @count = access_counter
-  # end
-
-  def access_counter
-    if session[:counter].nil?
-      session[:counter] = 0
-    end
-    session[:counter] += 1
-  end
-
+  skip_before_action :authorize
+  include CurrentCart
+  before_action :set_cart
   def index
-    @products = Product.order(:title)
-    @count = access_counter
+    if params[:set_locale]
+      redirect_to store_index_url(locale: params[:set_locale])
+    else
+      @products = Product.order(:title)
+    end
   end
 end
