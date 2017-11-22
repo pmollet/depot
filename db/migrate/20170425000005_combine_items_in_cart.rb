@@ -1,3 +1,11 @@
+#---
+# Excerpted from "Agile Web Development with Rails 5",
+# published by The Pragmatic Bookshelf.
+# Copyrights apply to this code. It may not be used to create training material,
+# courses, books, articles, and the like. Contact us if you are in doubt.
+# We make no guarantees that this code is fit for any purpose.
+# Visit http://www.pragmaticprogrammer.com/titles/rails51 for more book information.
+#---
 class CombineItemsInCart < ActiveRecord::Migration[5.1]
 
   def up
@@ -25,7 +33,7 @@ class CombineItemsInCart < ActiveRecord::Migration[5.1]
     # split items with quantity>1 into multiple items
     LineItem.where("quantity>1").each do |line_item|
       # add individual items
-      line_item.quantity.times do
+      line_item.quantity.times do 
         LineItem.create(
           cart_id: line_item.cart_id,
           product_id: line_item.product_id,
